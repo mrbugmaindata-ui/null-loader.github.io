@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Roblox Scripts</title>
+    <style>
+        /* Base Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #00E676;
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #00E676;
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .header-text {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Script Card Box */
+        .script-card {
+            background-color: #1a1a1a;
+            border: 1px solid #2d2d2d;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .script-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .script-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            margin: 0;
+        }
+
+        .script-status {
+            background-color: #00E676;
+            color: #121212;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Code Block Display */
+        .code-box {
+            position: relative;
+            background-color: #0d0d0d;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+            overflow-x: auto;
+            border: 1px solid #222;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #A5D6A7;
+            font-size: 14px;
+            white-space: pre;
+        }
+
+        /* Copy Button Styling */
+        .copy-btn {
+            background-color: #00E676;
+            color: #121212;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background-color: #00b357;
+        }
+
+        .copy-btn.copied {
+            background-color: #81C784;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav>
+        <h1>RobloxScriptHub</h1>
+    </nav>
+
+    <div class="container">
+        <div class="header-text">
+            <h2>Free & Updated Roblox Scripts</h2>
+            <p>Copy the loadstrings below and execute them using your preferred exploit executor.</p>
+        </div>
+
+        <!-- Script Section Entry Start -->
+        <div class="script-card">
+            <div class="script-header">
+                <div class="script-title">Universal Aimlock & ESP</div>
+                <div class="script-status">Undetected</div>
+            </div>
+            <p>A simple open-source graphical user interface script featuring customized ESP boxes, skeleton tracking, and a smooth mouse aimbot toggle.</p>
+            
+            <!-- Code Block display box -->
+            <div class="code-box">
+                <code id="scriptCode1">loadstring(game:HttpGet("https://githubusercontent.com"))()</code>
+            </div>
+            
+            <!-- Interactive Trigger button -->
+            <div style="margin-top: 15px; text-align: right;">
+                <button class="copy-btn" onclick="copyScript('scriptCode1', this)">Copy Script</button>
+            </div>
+        </div>
+        <!-- Script Section Entry End -->
+
+    </div>
+
+    <!-- Interactive JavaScript Engine for Copy Mechanism -->
+    <script>
+        function copyScript(elementId, button) {
+            // Get the text inside the code block matching the specified ID
+            var codeText = document.getElementById(elementId).innerText;
+            
+            // Execute native system copy framework
+            navigator.clipboard.writeText(codeText).then(function() {
+                // UI Visual State Update
+                var originalText = button.innerText;
+                button.innerText = "Copied!";
+                button.classList.add("copied");
+                
+                // Revert interface styling rule back to original standard after 2 seconds
+                setTimeout(function() {
+                    button.innerText = originalText;
+                    button.classList.remove("copied");
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
